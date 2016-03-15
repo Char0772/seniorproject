@@ -1,0 +1,107 @@
+/                                                          /
+///                                                     ////
+/////                                               ////////
+////////                                         ///////////
+///////////                                   //////////////
+//////////////                            //////////////////
+/////////////////		      //////////////////////	
+////////////////////		  //////////////////////////	
+///////////////////////        /////////////////////////////
+////////////////////////// /////////////////////////////////
+////////////////////////////////////////////////////////////
+############################################################
+#################DEPENDENCY#################################
+############################################################
+# PROBLEM:
+#X Error: BadAccess (attempt to access private resource denied) 10
+#  Extension:    130 (MIT-SHM)
+#  Minor opcode: 1 (X_ShmAttach)
+#  Resource id:  0x13b
+
+# This change had to be made in the /etc/enviornment file in order to render the QT GUI
+# Without this change, an error was being received:
+
+#Solution: 
+QT_X11_NO_MITSHM=1
+
+#################################################################
+#####################PROGRESS####################################
+#################################################################
+(January 11,2016)
+ # Implemented my own Airmon-ng equivelent script
+- Works on Debian and RedHat
+
+(January 12, 2016)
+# Began the GUI PyQt4
+
+(January 13, 2016)
+# Implemented dynamic interface detection using output from 
+- 'ls /sys/class/net'
+- Works on Debian and RedHat
+
+(JANUARY 21, 2016)- Segmentation Fault:
+#Problem is introduced by multithreading the application
+#The direct cause is not clear, however, it is related to threading the application
+#1. Best practice is to use QThread class
+#2. With QThread class use Signal/Slot model to communicate from the worker thread to the GUI
+#This solution seems to have worked for creating a worker thread that initiates my checkSSID #method
+
+(January 23, 2016)
+# Developed Scapy Deauthentication script
+
+(January 25, 2016)
+# Implemented DeAuthnetication Attack GUI with SiJI
+# Began scan filtering using grep,awk, and sed
+# Should worked once parsed into python as a list
+
+(January 27, 2016)
+# Implemented Dynamic GUI, is now resizeable 
+# Can now pass parameters to Deauth attack
+
+(January 28, 2016)
+# in Shell '=' is the comparison operator. This was causing issues (Learned) :)
+# with setting monitor and managed mode
+
+(January 29, 2016)
+# Changed method for scanning APs - Now using scappy to capture Beacons and probe responses
+# Deauth attack can only be initialized in Monitor mode (Complete) 
+# Todo - Indicate to user the matching SSID for the selected BSSID (Complete)
+
+(February 1, 2016)
+# Made 'er pretty
+# Implemented Error Checking
+# Will now work towards WEP and WPA GUI DESIGNS
+
+(February 2, 2016)
+# Added the dynamic update of theinterface information upon changing the selected interface
+# Fixed Regex for MAC address regex validation
+# Began design for WPA GUI (Aravinth and Hyde)
+# TODO - Find a way of reliably finding all wireless interfaces (Marc)
+# TODO - Implement WPA GUI
+
+??? Deauthentication did not work against Hamzas window machine O.o...why???
+Guess: He might have been part of the Dlink essid but part of a different BSSID
+- Also, on a different channel??
+
+(February 4, 2016) 
+# Redesigned and developed the sniffAP method to include Channels...they are crucial
+# Implemented channel adjustment prior to attack
+# Implemented channel Hopping during Beacon Capture 
+# :)
+
+(February 9, 2016)
+# Implemented GUI for WEP AND WPA :)
+-----------------------------------
+My Development Life Cycle:
+1. Research
+2. Design
+3. Develop
+	3.1 Improve UX( Make it pretty )
+	3.2 Optimize - Multithread?
+4. Implement
+
+
+
+:)
+
+
